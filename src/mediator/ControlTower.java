@@ -57,7 +57,7 @@ public class ControlTower implements Mediator{
         this.landingRunway.setAirplane(airplane);
         this.landingRunway.setInUse();
         System.out.println("the plane " + airplane.getReference() + " is " + airplane.getStatus());
-        System.out.println("the departing runway is " + this.landingRunway.getStatus());
+        System.out.println("the arriving runway is " + this.landingRunway.getStatus());
     }
 
     @Override
@@ -82,7 +82,7 @@ public class ControlTower implements Mediator{
         this.landingRunway.getAirplane().setStatus("Stopped");
         System.out.println("the plane " + this.landingRunway.getAirplane().getReference() + " is " + this.landingRunway.getAirplane().getStatus());
         this.landingRunway.setFree();
-        System.out.println("the departing runway is " + this.landingRunway.getStatus());
+        System.out.println("the arriving runway is " + this.landingRunway.getStatus());
     }
 
     @Override

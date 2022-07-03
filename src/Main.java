@@ -38,7 +38,21 @@ public class Main {
             }
         }
 
-
-        System.out.println("Hello world!");
+        while(controlTower.isLandingQueue()){
+            Airplane arrivingAirpleane = controlTower.verifyLandingPlanesQueue();
+            System.out.println("The plane " + arrivingAirpleane.getReference() + " is " + arrivingAirpleane.getStatus());
+            if(arrivingAirpleane != null){
+                if(arrivingAirpleane.getStatus() == "Waiting to Land" && controlTower.verifyLandingRunway()){
+                    controlTower.assignLandingRunway(arrivingAirpleane);
+                }
+                if(!controlTower.verifyLandingRunway()){
+                    try{
+                        controlTower.clearLandingRunway();
+                    } catch (Exception ex){
+                        System.out.println("Something went wrong with the taking off runway");
+                    }
+                }
+            }
+        }
     }
 }
